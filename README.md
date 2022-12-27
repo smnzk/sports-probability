@@ -2,10 +2,10 @@ Spring Boot application.
 
 GET endpoints:
 
-/results 
+<b>/results</b> 
 (optional query parameters: amount, competitionName)
 
-/competitors 
+<b>/competitors</b> 
 (optional query parameters: competitionName)
 
 /results returns most probable results
