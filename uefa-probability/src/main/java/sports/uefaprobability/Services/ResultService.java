@@ -15,11 +15,14 @@ public class ResultService {
         ArrayList<Result> results = new ArrayList<>();
 
         for (Event e : events) {
+
             String matchDescription = e.getCompetitors().get(0).getName() +
                     " (" + e.getCompetitors().get(0).getCountry() +") " +"vs " +
-                    e.getCompetitors().get(1).getName() + " (" + e.getCompetitors().get(1).getCountry() +") ";
+                    e.getCompetitors().get(1).getName() + " (" + e.getCompetitors().get(1).getCountry() +")";
+
             String venueName = e.getVenue().getName();
             String winner = "";
+
             if (e.getProbabilityHomeTeamWinner().equals(e.getHighestProbability())) {
                 winner = "HOME_TEAM_WIN";
             } else if (e.getProbabilityAwayTeamWinner().equals(e.getHighestProbability())) {
@@ -28,12 +31,23 @@ public class ResultService {
                 winner = "DRAW";
             }
             String highestProbableResult = winner + " (" + e.getHighestProbability() + ")";
+
             results.add(new Result(
                 e.getStartDate(),
                 matchDescription,
                 venueName,
                 highestProbableResult
             ));
+        }
+
+        for(Result r : results) {
+            System.out.println();
+            System.out.println(
+                    "StartDate: " + r.getStartDate() + ", \n"
+                    + r.getMatchDescription() + ", \n"
+                    + "Venue: " + r.getVenueName() + ", \n"
+                    + "Highest probable result: " + r.getHigestProbableResult()
+            );
         }
         return results;
     }
