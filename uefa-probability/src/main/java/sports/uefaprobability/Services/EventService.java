@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 public class EventService {
 
 
-    public List<Event> getMostProbable() throws IOException {
+    public List<Event> getMostProbable(int amount) throws IOException {
 
         String data = new String(Files.readAllBytes(Paths.get("BE_data.json")));
         JSONObject obj = new JSONObject(data);
@@ -80,9 +80,12 @@ public class EventService {
 
         }
 
+        if(amount > events.size()) {
+            amount = events.size();
+        }
         events.sort((o1, o2) -> Double.compare(o2.getHighestProbability(), o1.getHighestProbability()));
 
-        return events.stream().limit(10).collect(Collectors.toList());
+        return events.stream().limit(amount).collect(Collectors.toList());
 
     }
 

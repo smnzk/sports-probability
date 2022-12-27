@@ -11,6 +11,7 @@ import java.util.List;
 public class ResultService {
 
     public List<Result> getMostProbableResults(List<Event> events) {
+
         ArrayList<Result> results = new ArrayList<>();
 
         for (Event e : events) {
@@ -26,12 +27,12 @@ public class ResultService {
             } else {
                 winner = "DRAW";
             }
-            String higestProbableResult = winner + " (" + e.getHighestProbability() + ")";
+            String highestProbableResult = winner + " (" + e.getHighestProbability() + ")";
             results.add(new Result(
                 e.getStartDate(),
                 matchDescription,
                 venueName,
-                higestProbableResult
+                highestProbableResult
             ));
         }
         return results;

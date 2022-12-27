@@ -3,6 +3,7 @@ package sports.uefaprobability.Controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import sports.uefaprobability.Models.Event;
 import sports.uefaprobability.Models.Result;
@@ -26,7 +27,7 @@ public class ResultsController {
     }
 
     @GetMapping
-    public List<Result> getMostProbableResults() throws IOException {
-        return resultService.getMostProbableResults(eventService.getMostProbable());
+    public List<Result> getMostProbableResults(@RequestParam(defaultValue = "10") int amount) throws IOException {
+        return resultService.getMostProbableResults(eventService.getMostProbable(amount));
     }
 }
