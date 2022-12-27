@@ -1,5 +1,7 @@
 Spring Boot application.
 
+How to run: Open the code in the editor and run, check for the assigned port and start making requests, for example: http://localhost:8080/results?amount=2
+
 GET endpoints:
 
 <b>/results</b>\
