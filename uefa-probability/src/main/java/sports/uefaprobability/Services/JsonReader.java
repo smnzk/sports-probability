@@ -73,7 +73,6 @@ public class JsonReader {
                     event.getDouble("probability_draw"),
                     event.getDouble("probability_away_team_winner")
             ));
-
         }
         return events;
     }

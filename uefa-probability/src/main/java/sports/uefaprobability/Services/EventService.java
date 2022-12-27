@@ -24,6 +24,7 @@ public class EventService {
         if(amount > events.size()) {
             amount = events.size();
         }
+
         events.sort((o1, o2) -> Double.compare(o2.getHighestProbability(), o1.getHighestProbability()));
 
         return events.stream().limit(amount).collect(Collectors.toList());
