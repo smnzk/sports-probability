@@ -6,6 +6,7 @@ import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 import sports.uefaprobability.Models.Competitor;
 import sports.uefaprobability.Models.Event;
+import sports.uefaprobability.Models.Result;
 import sports.uefaprobability.Models.Venue;
 
 import java.io.IOException;
@@ -46,10 +47,8 @@ public class EventService {
                         vObj.getString("country_code")
                 );
             } catch (JSONException ignored) {
-            } finally {
                 venue = new Venue();
             }
-
             ArrayList<Competitor> c = new ArrayList<>();
 
             for (int j = 0; j < competitors.length(); j++) {
