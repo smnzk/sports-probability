@@ -15,7 +15,6 @@ public class ResultService {
         ArrayList<Result> results = new ArrayList<>();
 
         for (Event e : events) {
-
             String startDate = e.getStartDate().replace("T", " ").substring(0, e.getStartDate().length() - 6);
             String matchDescription = e.getCompetitors().get(0).getName() +
                     " (" + e.getCompetitors().get(0).getCountry() +") " +"vs " +
