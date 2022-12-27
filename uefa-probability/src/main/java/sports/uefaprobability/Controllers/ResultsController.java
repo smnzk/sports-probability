@@ -27,7 +27,7 @@ public class ResultsController {
     }
 
     @GetMapping
-    public List<Result> getMostProbableResults(@RequestParam(defaultValue = "10") int amount) throws IOException {
-        return resultService.getMostProbableResults(eventService.getMostProbable(amount));
+    public List<Result> getMostProbableResults(@RequestParam(defaultValue = "10") int amount, @RequestParam(defaultValue = "UEFA Champions League") String competitionName) throws IOException {
+        return resultService.getMostProbableResults(eventService.getMostProbable(amount, competitionName));
     }
 }

@@ -17,7 +17,7 @@ import java.util.List;
 @Service
 public class JsonReader {
 
-    public List<Event> readJsonFile() throws IOException {
+    public List<Event> readJsonFile(String competitionName) throws IOException {
         String data = new String(Files.readAllBytes(Paths.get("BE_data.json")));
         JSONObject obj = new JSONObject(data);
 
@@ -28,6 +28,11 @@ public class JsonReader {
         for(int i = 0; i < jsonArray.length(); i++) {
 
             JSONObject event = jsonArray.getJSONObject(i);
+
+            if(!event.getString("competition_name").equals(competitionName)) {
+                continue;
+            }
+
             JSONArray competitors = event.getJSONArray("competitors");
 
             Venue venue;

@@ -21,10 +21,10 @@ public class CompetitorService {
         this.reader = reader;
     }
 
-    public List<String> getAllCompetitorNamesAlphabetically() throws IOException {
+    public List<String> getAllCompetitorNamesAlphabetically(String competitionName) throws IOException {
         HashSet<String> namesSet = new HashSet<>();
 
-        for(Event e : reader.readJsonFile()) {
+        for(Event e : reader.readJsonFile(competitionName)) {
             for(Competitor c : e.getCompetitors()) {
                 namesSet.add(c.getName());
             }

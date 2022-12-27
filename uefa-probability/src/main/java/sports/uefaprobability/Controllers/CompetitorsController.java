@@ -3,6 +3,7 @@ package sports.uefaprobability.Controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import sports.uefaprobability.Services.CompetitorService;
 
@@ -21,7 +22,7 @@ public class CompetitorsController {
     }
 
     @GetMapping
-    public List<String> getAllCompetitorsNamesAlphabetically() throws IOException {
-        return competitorService.getAllCompetitorNamesAlphabetically();
+    public List<String> getAllCompetitorsNamesAlphabetically(@RequestParam(defaultValue = "UEFA Champions League") String competitionName) throws IOException {
+        return competitorService.getAllCompetitorNamesAlphabetically(competitionName);
     }
 }

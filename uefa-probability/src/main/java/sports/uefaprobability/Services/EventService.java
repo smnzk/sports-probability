@@ -17,9 +17,9 @@ public class EventService {
         this.reader = reader;
     }
 
-    public List<Event> getMostProbable(int amount) throws IOException {
+    public List<Event> getMostProbable(int amount, String competitionName) throws IOException {
 
-        List<Event> events = reader.readJsonFile();
+        List<Event> events = reader.readJsonFile(competitionName);
 
         if(amount > events.size()) {
             amount = events.size();
