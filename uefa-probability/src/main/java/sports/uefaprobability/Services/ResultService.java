@@ -16,6 +16,7 @@ public class ResultService {
 
         for (Event e : events) {
 
+            String startDate = e.getStartDate().replace("T", " ").substring(0, e.getStartDate().length() - 6);
             String matchDescription = e.getCompetitors().get(0).getName() +
                     " (" + e.getCompetitors().get(0).getCountry() +") " +"vs " +
                     e.getCompetitors().get(1).getName() + " (" + e.getCompetitors().get(1).getCountry() +")";
@@ -33,7 +34,7 @@ public class ResultService {
             String highestProbableResult = winner + " (" + e.getHighestProbability() + ")";
 
             results.add(new Result(
-                e.getStartDate(),
+                startDate,
                 matchDescription,
                 venueName,
                 highestProbableResult
